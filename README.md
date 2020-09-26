@@ -161,7 +161,7 @@ azurerm | ~> 2.27
 
 | Name | Version |
 |------|---------|
-azurerm | ~> 2.27
+azurerm | 2.27.0
 random | n/a
 
 ## Inputs
@@ -185,14 +185,14 @@ public_ip_allocation_method|Defines the allocation method for this IP address. P
 `bgp_asn_number`|The Autonomous System Number (ASN) to use as part of the BGP|string|`65515`
 `bgp_peering_address`|The BGP peer IP address of the virtual network gateway. This address is needed to configure the created gateway as a BGP Peer on the on-premises VPN devices. The IP address must be part of the subnet of the Virtual Network Gateway|string|`""`
 `bgp_peer_weight`|The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`|string|`0`
-`vpn_client_configuration`|Virtual Network Gateway client configuration to accept IPSec point-to-site connections|string|`null`
-`local_networks`|List of local virtual network connections to connect to gateway|string|`[]`
-`local_bgp_settings`|Local Network Gateway's BGP speaker settings|string|`null`
+`vpn_client_configuration`|Virtual Network Gateway client configuration to accept IPSec point-to-site connections|object|`null`
+`local_networks`|List of local virtual network connections to connect to gateway|list(object)|`[]`
+`local_bgp_settings`|Local Network Gateway's BGP speaker settings|list(object)|`null`
 `gateway_connection_type`|The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet)|string|`IPsec`
 `express_route_circuit_id`|The ID of the Express Route Circuit when creating an ExpressRoute connection|string|`""`
 `peer_virtual_network_gateway_id`|The ID of the peer virtual network gateway when creating a VNet-to-VNet connection|string|`null`
 `gateway_connection_protocol`|The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`|string|`IKEv2`
-`local_networks_ipsec_policy`|IPSec policy for local networks. Only a single policy can be defined for a connection|string|`null`
+`local_networks_ipsec_policy`|IPSec policy for local networks. Only a single policy can be defined for a connection|object|`null`
 `Tags`|A map of tags to add to all resources|map|`{}`
 
 ## Outputs
